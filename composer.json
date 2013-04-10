@@ -1,0 +1,28 @@
+{
+    "name": "tristanbes/maniaplanet-ws-sdk",
+    "type": "library",
+    "description": "A PHP 5.3+ library in order to query ManiaPlanet webservices (shootmania, trackmania...)",
+    "keywords": ["Oauth2", "Curl", "ManiaPlanet", "ShootMania", "Webservice"],
+    "homepage": "https://github.com/tristanbes/maniaplanet-ws-sdk",
+    "authors": [
+        {
+            "name": "Nadeo",
+            "email": "contact@nadeo.com",
+            "homepage": "http://www.nadeo.com/"
+        },
+        {
+            "name": "Tristan Bessoussa",
+            "homepage": "http://www.seek-team.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Maniaplanet": "libraries/"
+        }
+    },
+}
