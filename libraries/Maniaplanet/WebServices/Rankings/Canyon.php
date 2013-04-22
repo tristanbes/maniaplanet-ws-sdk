@@ -14,79 +14,76 @@ namespace Maniaplanet\WebServices\Rankings;
 
 use Maniaplanet\WebServices\Exception;
 
-
 class Canyon extends \Maniaplanet\WebServices\HTTPClient
 {
 
-	// MULTIPLAYER
-	function getMultiplayerPlayer($login)
-	{
-		if(!$login)
-		{
-			throw new Exception('Invalid login');
-		}
-		return $this->execute('GET', '/canyon/rankings/multiplayer/player/%s/', array($login));
-	}
+    // MULTIPLAYER
+    public function getMultiplayerPlayer($login)
+    {
+        if (!$login) {
+            throw new Exception('Invalid login');
+        }
 
-	function getMultiplayerWorld($offset = 0, $length = 100)
-	{
-		return $this->execute('GET', '/canyon/rankings/multiplayer/zone/?offset=%d&length=%d', array($offset, $length));
-	}
+        return $this->execute('GET', '/canyon/rankings/multiplayer/player/%s/', array($login));
+    }
 
-	function getMultiplayerZone($path, $offset = 0, $length = 100)
-	{
-		if(!$path)
-		{
-			throw new Exception('Invalid zone path');
-		}
-		return $this->execute('GET', '/canyon/rankings/multiplayer/zone/%s/?offset=%d&length=%d',
-						array($path, $offset, $length));
-	}
+    public function getMultiplayerWorld($offset = 0, $length = 100)
+    {
+        return $this->execute('GET', '/canyon/rankings/multiplayer/zone/?offset=%d&length=%d', array($offset, $length));
+    }
 
-	// SOLO
-	function getSoloPlayer($login)
-	{
-		if(!$login)
-		{
-			throw new Exception('Invalid login');
-		}
-		return $this->execute('GET', '/canyon/rankings/solo/player/%s/', array($login));
-	}
+    public function getMultiplayerZone($path, $offset = 0, $length = 100)
+    {
+        if (!$path) {
+            throw new Exception('Invalid zone path');
+        }
 
-	function getSoloWorld($offset = 0, $length = 100)
-	{
-		return $this->execute('GET', '/canyon/rankings/solo/zone/?offset=%d&length=%d', array($offset, $length));
-	}
+        return $this->execute('GET', '/canyon/rankings/multiplayer/zone/%s/?offset=%d&length=%d',
+                        array($path, $offset, $length));
+    }
 
-	function getSoloZone($path, $offset = 0, $length = 100)
-	{
-		if(!$path)
-		{
-			throw new Exception('Invalid zone path');
-		}
-		return $this->execute('GET', '/canyon/rankings/solo/zone/%s/?offset=%d&length=%d', array($path, $offset, $length));
-	}
+    // SOLO
+    public function getSoloPlayer($login)
+    {
+        if (!$login) {
+            throw new Exception('Invalid login');
+        }
 
-	function getSoloChallengeWorld($challengeuid, $offset = 0, $length = 100)
-	{
-		if(!$challengeuid)
-		{
-			throw new Exception('Invalid challenge UID');
-		}
-		return $this->execute('GET', '/canyon/rankings/solo/challenge/%s/?offset=%d&length=%d',
-						array($challengeuid, $offset, $length));
-	}
+        return $this->execute('GET', '/canyon/rankings/solo/player/%s/', array($login));
+    }
 
-	function getSoloChallengeZone($challengeuid, $path, $offset = 0, $length = 100)
-	{
-		if(!$challengeuid)
-		{
-			throw new Exception('Invalid challenge UID');
-		}
-		return $this->execute('GET', '/canyon/rankings/solo/challenge/%s/%s/?offset=%d&length=%d',
-						array($challengeuid, $path, $offset, $length));
-	}
+    public function getSoloWorld($offset = 0, $length = 100)
+    {
+        return $this->execute('GET', '/canyon/rankings/solo/zone/?offset=%d&length=%d', array($offset, $length));
+    }
+
+    public function getSoloZone($path, $offset = 0, $length = 100)
+    {
+        if (!$path) {
+            throw new Exception('Invalid zone path');
+        }
+
+        return $this->execute('GET', '/canyon/rankings/solo/zone/%s/?offset=%d&length=%d', array($path, $offset, $length));
+    }
+
+    public function getSoloChallengeWorld($challengeuid, $offset = 0, $length = 100)
+    {
+        if (!$challengeuid) {
+            throw new Exception('Invalid challenge UID');
+        }
+
+        return $this->execute('GET', '/canyon/rankings/solo/challenge/%s/?offset=%d&length=%d',
+                        array($challengeuid, $offset, $length));
+    }
+
+    public function getSoloChallengeZone($challengeuid, $path, $offset = 0, $length = 100)
+    {
+        if (!$challengeuid) {
+            throw new Exception('Invalid challenge UID');
+        }
+
+        return $this->execute('GET', '/canyon/rankings/solo/challenge/%s/%s/?offset=%d&length=%d',
+                        array($challengeuid, $path, $offset, $length));
+    }
 
 }
-
-?>

@@ -12,16 +12,14 @@ namespace Maniaplanet\WebServices\ManiaHome;
 class Comments extends \Maniaplanet\WebServices\HTTPClient
 {
 
-	/**
-	 *
-	 * @param int $notificationId
-	 * @return int number of parameters
-	 */
-	function count($notificationId)
-	{
-		return $this->execute('GET', sprintf('/maniahome/notifications/%d/comments/count/', $notificationId));
-	}
+    /**
+     *
+     * @param  int $notificationId
+     * @return int number of parameters
+     */
+    public function count($notificationId)
+    {
+        return $this->execute('GET', sprintf('/maniahome/notifications/%d/comments/count/', $notificationId));
+    }
 
 }
-
-?>

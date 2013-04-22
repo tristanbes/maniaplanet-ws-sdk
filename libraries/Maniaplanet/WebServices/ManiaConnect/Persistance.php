@@ -15,15 +15,13 @@ namespace Maniaplanet\WebServices\ManiaConnect;
 interface Persistance
 {
 
-	function init();
+    public function init();
 
-	function destroy();
+    public function destroy();
 
-	function getVariable($name, $default=null);
+    public function getVariable($name, $default=null);
 
-	function setVariable($name, $value);
+    public function setVariable($name, $value);
 
-	function deleteVariable($name);
+    public function deleteVariable($name);
 }
-
-?>

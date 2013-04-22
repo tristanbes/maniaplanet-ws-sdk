@@ -14,32 +14,29 @@ namespace Maniaplanet\WebServices\Rankings;
 
 use Maniaplanet\WebServices\Exception;
 
-
 class Royal extends \Maniaplanet\WebServices\HTTPClient
 {
-	function getMultiplayerPlayer($login)
-	{
-		if(!$login)
-		{
-			throw new Exception('Invalid login');
-		}
-		return $this->execute('GET', '/royal/rankings/multiplayer/player/%s/', array($login));
-	}
+    public function getMultiplayerPlayer($login)
+    {
+        if (!$login) {
+            throw new Exception('Invalid login');
+        }
 
-	function getMultiplayerWorld($offset = 0, $length = 100)
-	{
-		return $this->execute('GET', '/royal/rankings/multiplayer/zone/?offset=%d&length=%d', array($offset, $length));
-	}
+        return $this->execute('GET', '/royal/rankings/multiplayer/player/%s/', array($login));
+    }
 
-	function getMultiplayerZone($path, $offset = 0, $length = 100)
-	{
-		if(!$path)
-		{
-			throw new Exception('Invalid zone path');
-		}
-		return $this->execute('GET', '/royal/rankings/multiplayer/zone/%s/?offset=%d&length=%d',
-						array($path, $offset, $length));
-	}
+    public function getMultiplayerWorld($offset = 0, $length = 100)
+    {
+        return $this->execute('GET', '/royal/rankings/multiplayer/zone/?offset=%d&length=%d', array($offset, $length));
+    }
+
+    public function getMultiplayerZone($path, $offset = 0, $length = 100)
+    {
+        if (!$path) {
+            throw new Exception('Invalid zone path');
+        }
+
+        return $this->execute('GET', '/royal/rankings/multiplayer/zone/%s/?offset=%d&length=%d',
+                        array($path, $offset, $length));
+    }
 }
-
-?>

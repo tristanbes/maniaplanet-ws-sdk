@@ -18,22 +18,20 @@ namespace Maniaplanet\WebServices;
 class Manialinks extends HTTPClient
 {
 
-	/**
-	 * Retrieves information about a Manialink code.
-	 * 
-	 * @param string $code Short Manialink code
-	 * @return object
-	 * @throws \TrackMania\WebServices\Exception 
-	 */
-	function get($code)
-	{
-		if(!$code)
-		{
-			throw new Exception('Invalid Manialink code');
-		}
-		return $this->execute('GET', '/manialinks/%s/', array($code));
-	}
+    /**
+     * Retrieves information about a Manialink code.
+     *
+     * @param  string                            $code Short Manialink code
+     * @return object
+     * @throws \TrackMania\WebServices\Exception
+     */
+    public function get($code)
+    {
+        if (!$code) {
+            throw new Exception('Invalid Manialink code');
+        }
+
+        return $this->execute('GET', '/manialinks/%s/', array($code));
+    }
 
 }
-
-?>
