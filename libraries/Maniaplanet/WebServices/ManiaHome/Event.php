@@ -11,7 +11,5 @@ namespace Maniaplanet\WebServices\ManiaHome;
 
 class Event extends \Maniaplanet\WebServices\Notification
 {
-	public $eventDate;
+    public $eventDate;
 }
-
-?>

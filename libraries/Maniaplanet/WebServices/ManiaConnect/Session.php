@@ -15,68 +15,63 @@ namespace Maniaplanet\WebServices\ManiaConnect;
 class Session implements Persistance
 {
 
-	/**
-	 * Local array to store variables for the setVariable()/getVariable() methods.
-	 * 
-	 * @var array
-	 */
-	protected $vars;
+    /**
+     * Local array to store variables for the setVariable()/getVariable() methods.
+     *
+     * @var array
+     */
+    protected $vars;
 
-	/**
-	 * Generates an almost safe key to store stuff in the PHP session without
-	 * collisioning with other variables.
-	 */
-	private function getVariableKey($name)
-	{
-		return md5(sprintf('maniaplanet:%s:', $name));
-	}
+    /**
+     * Generates an almost safe key to store stuff in the PHP session without
+     * collisioning with other variables.
+     */
+    private function getVariableKey($name)
+    {
+        return md5(sprintf('maniaplanet:%s:', $name));
+    }
 
-	function init()
-	{
-		if(!session_id())
-		{
-			if(!session_start())
-			{
-				throw new \Maniaplanet\WebServices\Exception('Failed to start session');
-			}
-		}
-		$this->vars = array();
-	}
+    public function init()
+    {
+        if (!session_id()) {
+            if (!session_start()) {
+                throw new \Maniaplanet\WebServices\Exception('Failed to start session');
+            }
+        }
+        $this->vars = array();
+    }
 
-	function destroy()
-	{
-		session_destroy();
-		$this->vars = array();
-	}
+    public function destroy()
+    {
+        session_destroy();
+        $this->vars = array();
+    }
 
-	function getVariable($name, $default=null)
-	{
-		$key = $this->getVariableKey($name);
-		if(!array_key_exists($key, $this->vars))
-		{
-			if(!array_key_exists($key, $_SESSION))
-			{
-				return $default;
-			}
-			$this->vars[$key] = unserialize($_SESSION[$key]);
-		}
-		return $this->vars[$key];
-	}
+    public function getVariable($name, $default=null)
+    {
+        $key = $this->getVariableKey($name);
+        if (!array_key_exists($key, $this->vars)) {
+            if (!array_key_exists($key, $_SESSION)) {
+                return $default;
+            }
+            $this->vars[$key] = unserialize($_SESSION[$key]);
+        }
 
-	function setVariable($name, $value)
-	{
-		$key = $this->getVariableKey($name);
-		$this->vars[$key] = $value;
-		$_SESSION[$key] = serialize($value);
-	}
+        return $this->vars[$key];
+    }
 
-	function deleteVariable($name)
-	{
-		$key = $this->getVariableKey($name);
-		unset($this->vars[$key]);
-		unset($_SESSION[$key]);
-	}
+    public function setVariable($name, $value)
+    {
+        $key = $this->getVariableKey($name);
+        $this->vars[$key] = $value;
+        $_SESSION[$key] = serialize($value);
+    }
+
+    public function deleteVariable($name)
+    {
+        $key = $this->getVariableKey($name);
+        unset($this->vars[$key]);
+        unset($_SESSION[$key]);
+    }
 
 }
-
-?>

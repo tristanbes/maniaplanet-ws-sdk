@@ -15,34 +15,32 @@ namespace Maniaplanet\WebServices;
 class Payments extends HTTPClient
 {
 
-	/**
-	 * @param Transaction $t
-	 * @return int ID of the created transaction
-	 */
-	function create(Transaction $t)
-	{
-		return $this->execute('POST', '/transactions/', array($t));
-	}
+    /**
+     * @param  Transaction $t
+     * @return int         ID of the created transaction
+     */
+    public function create(Transaction $t)
+    {
+        return $this->execute('POST', '/transactions/', array($t));
+    }
 
-	/**
-	 * Pay a transaction without ingame validation
-	 * Works only to give coppers from your account
-	 * @param Transaction $t
-	 */
-	function pay(Transaction $t)
-	{
-		return $this->execute('POST', '/transactions/pay/', array($t));
-	}
+    /**
+     * Pay a transaction without ingame validation
+     * Works only to give coppers from your account
+     * @param Transaction $t
+     */
+    public function pay(Transaction $t)
+    {
+        return $this->execute('POST', '/transactions/pay/', array($t));
+    }
 
-	/**
-	 * @param int $id
-	 * @return bool Whether the specified transaction was paid by the player
-	 */
-	function isPaid($id)
-	{
-		return $this->execute('GET', '/transactions/%d/ispaid/', array($id));
-	}
+    /**
+     * @param  int  $id
+     * @return bool Whether the specified transaction was paid by the player
+     */
+    public function isPaid($id)
+    {
+        return $this->execute('GET', '/transactions/%d/ispaid/', array($id));
+    }
 
 }
-
-?>

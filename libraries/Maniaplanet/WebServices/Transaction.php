@@ -15,15 +15,13 @@ namespace Maniaplanet\WebServices;
 class Transaction
 {
 
-	public $id;
-	public $creatorLogin;
-	public $creatorPassword;
-	public $creatorSecurityKey;
-	public $fromLogin;
-	public $toLogin;
-	public $message;
-	public $cost;
+    public $id;
+    public $creatorLogin;
+    public $creatorPassword;
+    public $creatorSecurityKey;
+    public $fromLogin;
+    public $toLogin;
+    public $message;
+    public $cost;
 
 }
-
-?>

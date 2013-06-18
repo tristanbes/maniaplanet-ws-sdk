@@ -11,59 +11,54 @@ namespace Maniaplanet\WebServices;
 
 class Teams extends HTTPClient
 {
-	/**
-	 * @param int $id Id of the team
-	 * @return object
-	 * @throws Exception
-	 */
-	function get($id)
-	{
-		if (!$id)
-		{
-			throw new Exception('Invalid id');
-		}
+    /**
+     * @param  int       $id Id of the team
+     * @return object
+     * @throws Exception
+     */
+    public function get($id)
+    {
+        if (!$id) {
+            throw new Exception('Invalid id');
+        }
 
-		return $this->execute('GET', '/teams/%d/', array($id));
-	}
+        return $this->execute('GET', '/teams/%d/', array($id));
+    }
 
-	/**
-	 * @param int $id Id of the team
-	 * @return object
-	 * @throws Exception
-	 */
-	function getContracts($id)
-	{
-		if (!$id)
-		{
-			throw new Exception('Invalid id');
-		}
+    /**
+     * @param  int       $id Id of the team
+     * @return object
+     * @throws Exception
+     */
+    public function getContracts($id)
+    {
+        if (!$id) {
+            throw new Exception('Invalid id');
+        }
 
-		return $this->execute('GET', '/teams/%d/contracts/', array($id));
-	}
+        return $this->execute('GET', '/teams/%d/contracts/', array($id));
+    }
 
+    /**
+     * @param  int       $id Id of the team
+     * @return object
+     * @throws Exception
+     */
+    public function getAdmins($id)
+    {
+        if (!$id) {
+            throw new Exception('Invalid id');
+        }
 
-	/**
-	 * @param int $id Id of the team
-	 * @return object
-	 * @throws Exception
-	 */
-	function getAdmins($id)
-	{
-		if (!$id)
-		{
-			throw new Exception('Invalid id');
-		}
+        return $this->execute('GET', '/teams/%d/admins/', array($id));
+    }
 
-		return $this->execute('GET', '/teams/%d/admins/', array($id));
-	}
+    public function getRank($id)
+    {
+        if (!$id) {
+            throw new Exception('Invalid id');
+        }
 
-	function getRank($id)
-	{
-		if (!$id)
-		{
-			throw new Exception('Invalid id');
-		}
-
-		return $this->execute('GET', '/teams/%d/rank/', array($id));
-	}
+        return $this->execute('GET', '/teams/%d/rank/', array($id));
+    }
 }
