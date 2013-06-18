@@ -18,34 +18,36 @@ namespace Maniaplanet\WebServices;
 class Exception extends \Exception
 {
 
-    protected $HTTPStatusCode;
-    protected $HTTPStatusMessage;
+	protected $HTTPStatusCode;
+	protected $HTTPStatusMessage;
 
-    public function __construct($message='', $code=0, $HTTPStatusCode=0,
-        $HTTPStatusMessage='')
-    {
-        parent::__construct($message ? : $HTTPStatusMessage, $code ? : $HTTPStatusCode);
+	function __construct($message='', $code=0, $HTTPStatusCode=0,
+		$HTTPStatusMessage='')
+	{
+		parent::__construct($message ? : $HTTPStatusMessage, $code ? : $HTTPStatusCode);
 
-        $this->HTTPStatusCode = $HTTPStatusCode;
-        $this->HTTPStatusMessage = $HTTPStatusMessage;
-    }
+		$this->HTTPStatusCode = $HTTPStatusCode;
+		$this->HTTPStatusMessage = $HTTPStatusMessage;
+	}
 
-    /**
-     * The HTTP status code returned in case of an error, eg. 404
-     * @return int
-     */
-    public function getHTTPStatusCode()
-    {
-        return $this->HTTPStatusCode;
-    }
+	/**
+	 * The HTTP status code returned in case of an error, eg. 404
+	 * @return int
+	 */
+	function getHTTPStatusCode()
+	{
+		return $this->HTTPStatusCode;
+	}
 
-    /**
-     * The HTTP status message returned in case of an error, eg. "Not Found"
-     * @return string
-     */
-    public function getHTTPStatusMessage()
-    {
-        return $this->HTTPStatusMessage;
-    }
+	/**
+	 * The HTTP status message returned in case of an error, eg. "Not Found"
+	 * @return string
+	 */
+	function getHTTPStatusMessage()
+	{
+		return $this->HTTPStatusMessage;
+	}
 
 }
+
+?>

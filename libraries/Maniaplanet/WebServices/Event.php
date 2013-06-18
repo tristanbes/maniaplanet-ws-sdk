@@ -17,3 +17,5 @@ namespace Maniaplanet\WebServices;
 class Event extends ManiaHome\Event
 {
 }
+
+?>

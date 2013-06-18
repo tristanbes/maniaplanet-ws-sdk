@@ -5,9 +5,9 @@
  * @see		    http://code.google.com/p/maniaplanet-ws-sdk/
  * @copyright   Copyright (c) 2009-2011 NADEO (http://www.nadeo.com)
  * @license     http://www.gnu.org/licenses/lgpl.html LGPL License 3
- * @author      $Author: maximeraoust $:
- * @version     $Revision: 48 $:
- * @date        $Date: 2011-09-29 16:47:40 +0200 (jeu., 29 sept. 2011) $:
+ * @author      $Author: maxime $:
+ * @version     $Revision: 7090 $:
+ * @date        $Date: 2012-05-09 19:54:25 +0200 (mer., 09 mai 2012) $:
  */
 
 namespace Maniaplanet\WebServices\ManiaConnect;
@@ -15,13 +15,15 @@ namespace Maniaplanet\WebServices\ManiaConnect;
 interface Persistance
 {
 
-    public function init();
+	function init();
 
-    public function destroy();
+	function destroy();
 
-    public function getVariable($name, $default=null);
+	function getVariable($name, $default=null);
 
-    public function setVariable($name, $value);
+	function setVariable($name, $value);
 
-    public function deleteVariable($name);
+	function deleteVariable($name);
 }
+
+?>

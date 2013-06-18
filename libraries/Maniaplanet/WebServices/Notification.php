@@ -18,3 +18,5 @@ namespace Maniaplanet\WebServices;
 class Notification extends ManiaHome\Notification
 {
 }
+
+?>
